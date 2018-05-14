@@ -1,0 +1,20 @@
+{
+  "name": "bookman",
+  "description": "book",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+    
+  ],
+   "dependencies": {
+    "bootstrap": "~3.3.7",
+    "jquery-validation-bootstrap-tooltip":"0.10.2",
+    "jquery-validation":"1.14.0"
+     }
+ }
