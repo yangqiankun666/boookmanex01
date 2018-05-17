@@ -9,6 +9,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 		
 	<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<link href="bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.css" rel="stylesheet" type="text/css"/>
+	
 	<style type="text/css">
 	
 	
@@ -71,6 +73,17 @@
 				</div>
 				
 				
+				
+					<div class="form-group">
+				
+					<label for="inputPubDate" class="col-sm-2 control-label">
+						出版时间:
+					</label>
+					<div class="col-sm-10">
+						<input  class="form-control" id="inputPubDate" type="text" name="pubDate"  />
+					</div>
+				</div>
+				
 				<div class="form-group">
 				
 					<label for="inputAuthor" class="col-sm-2 control-label">
@@ -130,6 +143,10 @@ name="vcode" maxlength="4"/>
 
 	<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js">
+	</script>
+	<script type="text/javascript" src="bower_components/bootstrap-datepicker/dist/locales/bootstrap-datepicker.zh-CN.min.js">
+	</script>
 	<script type="text/javascript" src="bower_components/jquery-validation/dist/jquery.validate.js">
 	</script>
 	<script type="text/javascript" src="bower_components/jquery-validation-bootstrap-tooltip/jquery-validate.bootstrap-tooltip.js">
@@ -142,7 +159,11 @@ this.src="vcode.png?t="+Math.random();
 });  
 
 
-
+$('#inputPubDate').datepicker({
+    format: 'yyyy-mm-dd',
+    	language: 'zh-CN',
+    	autoclose:true
+});
 
 
 
