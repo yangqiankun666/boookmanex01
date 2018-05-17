@@ -1,3 +1,5 @@
+<%@page import="cn.edu.nyist.bookman.v0.TypeVo"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html >
@@ -102,9 +104,10 @@
 					</label>
 					<div class="col-sm-10">
 					<select name="tid" class="form-control" id="selectTid">
-					<option value="1">电子书</option>
-					<option value="2">编程书</option>
-					<option value="3">漫画书</option>
+				
+					
+					
+					
 					</select>
 				
 						
@@ -170,5 +173,16 @@ $('#inputPubDate').datepicker({
 });  
 
 </script>  
+
+<script type="text/javascript">
+function fillSel() {
+	var sel=document.getElementById("selectTid");
+	for (var i = 0; i < types.length; i++) {
+		sel.appendChild(new Option(types[i].name,types[i].id))
+	}
+}
+
+</script>
+<script type="text/javascript" src="findAllTypes" onload="fillSel()"></script>
 </body>
 </html>
