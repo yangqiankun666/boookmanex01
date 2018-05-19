@@ -1,6 +1,6 @@
 package cn.edu.nyist.bookman.impl;
 
-import java.util.Date;
+import java.util.List;
 
 import cn.edu.nyist.bookman.biz.BookBiz;
 import cn.edu.nyist.bookman.dao.BookDao;
@@ -13,6 +13,18 @@ public class BookBizImpl implements BookBiz {
 	public int saveBook(BookVo bookVo) {
 		BookDao bookDao=new BookDaoJdbcImpl();
 		return bookDao.save(bookVo);
+	}
+
+	@Override
+	public List<BookVo> findAllBooks(int pageNo) {
+	BookDao bookDao=new BookDaoJdbcImpl();
+		return bookDao.findAll(pageNo);
+	}
+
+	@Override
+	public int findTotal() {
+		BookDao bookDao=new BookDaoJdbcImpl();
+		return bookDao.getTotal();
 	}
 
 }
