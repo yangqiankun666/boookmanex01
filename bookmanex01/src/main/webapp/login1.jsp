@@ -73,7 +73,7 @@ name="vcode" maxlength="4"/>
 <div class="col-sm-offset-2 col-sm-10">  
 
 <button type="submit" class="btn btn-default">  
-						登陆  
+						登录
 </button>  
 </div>  
 </div>  

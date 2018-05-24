@@ -30,13 +30,13 @@ public class LoginServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String name=request.getParameter("name");
 		String pwd=request.getParameter("pwd");
-		//��ȡ��֤��
+		//锟斤拷取锟斤拷证锟斤拷
 		String vcode=request.getParameter("vcode");
 		HttpSession session = request.getSession(); 
 		//session.setAttribute("validateCode", randomCode.toString()); 
 		String serverVcode=(String) session.getAttribute("validateCode");
 		if(!serverVcode.equalsIgnoreCase(vcode)) {
-			request.setAttribute("msg", "��֤�����");
+			request.setAttribute("msg", "验证码错误");
 	    	request.setAttribute("name", name);
 	    	request.getRequestDispatcher("login.jsp").forward(request, response);
 	    	return ;
@@ -46,10 +46,13 @@ public class LoginServlet extends HttpServlet {
 		
 		
 		    if(ret) {
+		    	//记录是否登录成功
+		    	request.getSession().setAttribute("loginSuccess", "1");
 		    	response.sendRedirect("main.jsp");
+		    	
 		    }
 		    else {
-		    	request.setAttribute("msg", "�û��������������");
+		    	request.setAttribute("msg", "用户名或者密码错误");
 		    	request.setAttribute("name", name);
 		    	request.getRequestDispatcher("login.jsp").forward(request, response);
 		    }

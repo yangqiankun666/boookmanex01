@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html >
 <html>
 <head>
@@ -29,7 +30,7 @@
 							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">书籍管理<strong class="caret"></strong></a>
 							<ul class="dropdown-menu">
 								<li>
-									<a href="#">查看</a>
+									<a href="bookList">查看</a>
 								</li>
 								<li>
 									<a href="bookAdd.jsp">添加</a>
@@ -43,7 +44,7 @@
 				
 					<ul class="nav navbar-nav navbar-right">
 						<li>
-							<a href="#">登录</a>
+							<a href="exit.jsp">退出</a>
 						</li>
 						<li>
 							<a href="#">修改密码</a>

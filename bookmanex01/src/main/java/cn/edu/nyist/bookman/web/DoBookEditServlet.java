@@ -1,7 +1,6 @@
 package cn.edu.nyist.bookman.web;
 
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.util.UUID;
 
 import javax.servlet.ServletException;
@@ -12,21 +11,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
-import org.apache.commons.beanutils.BeanUtils;
-
 import cn.edu.nyist.bookman.biz.BookBiz;
 import cn.edu.nyist.bookman.impl.BookBizImpl;
 import cn.edu.nyist.bookman.util.MyBeanUtils;
 import cn.edu.nyist.bookman.v0.BookVo;
 
 
-@WebServlet("/bookAdd")
+@WebServlet("/doBookEdit")
 @MultipartConfig
-public class BookAddServlet extends HttpServlet {
+public class DoBookEditServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     
-    public BookAddServlet() {
+    public DoBookEditServlet() {
         super();
        
     }
@@ -38,14 +35,15 @@ public class BookAddServlet extends HttpServlet {
 		Part part=request.getPart("photo");
 		String fileName= part.getHeader("Content-Disposition").split(";")[2].split("=")[1].replace("\"", "");
 		//瑙ｅ喅IE涓嬮敊璇棶棰�  
-		fileName=fileName.lastIndexOf("\\")==-1?
-				fileName:fileName.substring(fileName.lastIndexOf("\\")+1);
+		String newFileName="";
+		if(!fileName.equals("")) {
+		fileName=fileName.lastIndexOf("\\")==-1?fileName:fileName.substring(fileName.lastIndexOf("\\")+1);
 				//瀛樺湪hibernate.cfg.xml杩欑饨備欢鍚�  
 				String ext=fileName.substring(fileName.lastIndexOf('.')+1);  
-				String newFileName=UUID.randomUUID().toString()+"."+ext;  
+				newFileName=UUID.randomUUID().toString()+"."+ext;  
 				part.write(request.getServletContext().getRealPath("upload/"+newFileName));
 				
-				
+		}
 				/*String name=request.getParameter("name");
 				String descri=request.getParameter("descri");
 				String strPrice=request.getParameter("price");
@@ -73,17 +71,20 @@ public class BookAddServlet extends HttpServlet {
 					e.printStackTrace();
 				}*/
 				MyBeanUtils.populate(bookVo, request.getParameterMap(),"yyyy-MM-dd");
+				if(!fileName.equals("")) {
 				bookVo.setPhoto(newFileName);
+				}
 				BookBiz bookbiz=new BookBizImpl();
 				//int ret=bookbiz.saveBook(name,descri,price,author,tid,newFileName,pubDate);
-				int ret=bookbiz.saveBook(bookVo);
+				int ret=bookbiz.editBook(bookVo);
 				response.setContentType("text/html;charset=utf-8");
 				if (ret>0) {
-				response.getWriter().write("添加成功");	
+				response.sendRedirect("bookList");
 				} else {
 					request.setAttribute("msg", "添加失败");
-					request.getRequestDispatcher("bookAdd.jsp").forward(request,response);
-
+					//request.getRequestDispatcher("doBookEdit").forward(request,response);
+					request.setAttribute("bookVo", bookVo);
+                request.getRequestDispatcher("bookEdit.jsp").forward(request, response);
 				}
 				
 				

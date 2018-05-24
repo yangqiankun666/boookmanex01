@@ -26,6 +26,8 @@ public class FindAllTypesServlet extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
 		TypeBiz typeBiz=new TypeBizImpl();
 		List<TypeVo> ls=typeBiz.findAllTypes();
 		//request.setAttribute("ls",ls);
