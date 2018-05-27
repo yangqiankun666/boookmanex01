@@ -42,4 +42,57 @@ public class AdminDaoJdbcImpl implements AdminDao {
 		return ret;
 	}
 
+	@Override
+	public Boolean ins(String name, String pwd) {
+		Connection conn=null;
+		PreparedStatement stmt=null;
+		Boolean rt=false;
+		try {
+			conn=DsUtil.getconn();
+			String sql="insert into t_admin(name,pwd) values(?,?)";
+			stmt=conn.prepareStatement(sql);
+			stmt.setString(1, name);
+			stmt.setString(2, pwd);
+            
+            int ret=stmt.executeUpdate();
+            if (ret>0) {
+            	return true;
+			}
+            
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}finally {
+			DsUtil.free( stmt, conn);
+		}
+		return rt;
+	}
+
+	@Override
+	public Boolean editadmin(String pwd) {
+		Connection conn=null;
+		PreparedStatement stmt=null;
+		Boolean rt=false;
+		try {
+			conn=DsUtil.getconn();
+			
+				String sql=" update t_admin set pwd=?";
+				stmt=conn.prepareStatement(sql);
+				stmt.setString(1, pwd);
+	           
+	            int ret=stmt.executeUpdate();
+	            if (ret>0) {
+	            	 return true;
+				}
+	           
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}finally {
+			DsUtil.free( stmt, conn);
+		}
+		return rt;
+	}
+
 }

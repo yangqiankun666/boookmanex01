@@ -12,4 +12,16 @@ public class AdminBizimpl implements AdminBiz{
 		return adminDao.get(name,pwd);
 	}
 
+	@Override
+	public Boolean insertnameandpwd(String name, String pwd) {
+		AdminDao adminDao=new AdminDaoJdbcImpl();
+		return adminDao.ins(name,pwd);
+	}
+
+	@Override
+	public Boolean editpwd(String pwd) {
+		AdminDao adminDao=new AdminDaoJdbcImpl();
+		return adminDao.editadmin(pwd);
+	}
+
 }

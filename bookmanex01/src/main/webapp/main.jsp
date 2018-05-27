@@ -15,6 +15,9 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
+		<%if(request.getAttribute("msg")!=null) {%>
+				<div class="alert alert-warning" role="alert"> <%=request.getAttribute("msg") %></div>
+					<%} %>
 			<nav class="navbar navbar-default" role="navigation">
 				<div class="navbar-header">
 					 
@@ -47,7 +50,7 @@
 							<a href="exit.jsp">退出</a>
 						</li>
 						<li>
-							<a href="#">修改密码</a>
+							<a href="edit.jsp">修改密码</a>
 						</li>
 						
 					</ul>

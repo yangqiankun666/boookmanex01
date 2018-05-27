@@ -56,4 +56,6 @@ public class BookBizImpl implements BookBiz {
 		return bookDao.edit(bookVo);
 	}
 
+	
+
 }

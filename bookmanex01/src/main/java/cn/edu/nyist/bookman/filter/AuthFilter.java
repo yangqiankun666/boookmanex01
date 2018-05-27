@@ -29,7 +29,7 @@ public class AuthFilter implements Filter {
 		HttpServletResponse resp=(HttpServletResponse) response;
 		//login1。jsp和longinservlet要放行css和jss要放，验证码也要放
 		String url=req.getRequestURI();
-		if (url.endsWith("/login")||url.endsWith("/login1.jsp")||url.contains("/bower_components/")||url.endsWith("/vcode.png")) {
+		if (url.endsWith("/login")||url.endsWith("/reg")||url.endsWith("/login1.jsp")||url.endsWith("/register.jsp")||url.contains("/bower_components/")||url.endsWith("/vcode.png")) {
 			chain.doFilter(request, response);
 			return;
 		}

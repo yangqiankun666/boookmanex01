@@ -23,4 +23,6 @@ public interface BookBiz {
 
 	int editBook(BookVo bookVo);
 
+	
+
 }

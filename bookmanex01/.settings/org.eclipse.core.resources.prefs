@@ -2,4 +2,6 @@ eclipse.preferences.version=1
 encoding//src/main/java/cn/edu/nyist/bookman/dao/impl/BookDaoJdbcImpl.java=UTF-8
 encoding//src/main/java/cn/edu/nyist/bookman/web/BookAddServlet.java=UTF-8
 encoding//src/main/java/cn/edu/nyist/bookman/web/DoBookEditServlet.java=UTF-8
+encoding//src/main/java/cn/edu/nyist/bookman/web/EditPwdServlet.java=UTF-8
 encoding//src/main/java/cn/edu/nyist/bookman/web/LoginServlet.java=UTF-8
+encoding//src/main/java/cn/edu/nyist/bookman/web/RegServlet.java=UTF-8

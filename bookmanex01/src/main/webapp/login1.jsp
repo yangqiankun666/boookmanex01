@@ -30,6 +30,7 @@
 			
 			
 				<div class="form-group">
+			
 				<%if(request.getAttribute("msg")!=null) {%>
 				<div class="alert alert-warning" role="alert"> <%=request.getAttribute("msg") %></div>
 					<%} %>
@@ -74,9 +75,15 @@ name="vcode" maxlength="4"/>
 
 <button type="submit" class="btn btn-default">  
 						登录
+					
 </button>  
+             
+                         <div><li>
+							<a type="text"  href="register.jsp">还没有账号,点击注册</a>
+						</li>	</div>
 </div>  
 </div>  
+
 </form>  
 </div>  
 </div>  

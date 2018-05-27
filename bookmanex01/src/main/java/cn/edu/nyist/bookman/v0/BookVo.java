@@ -15,8 +15,21 @@ public class BookVo implements Serializable {
 	private String author;
 	private Date pubDate;
 	private String photo;
-	
-	
+	private String pwd;
+
+
+
+	public String getPwd() {
+		return pwd;
+	}
+
+
+
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+
+
 
 	public BookVo() {
 		// TODO Auto-generated constructor stub
