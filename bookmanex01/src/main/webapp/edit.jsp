@@ -12,7 +12,7 @@
 
 <h1>修改密码</h1>
 <form action="editPwd" method="post">  
-
+原来的密码:<input type="password" name="pwd1"><br>
 新密码:<input type="password" name="pwd"><br>  
 确认密码:<input type="password" name="pwd"><br>  
 <button type="submit" class="btn btn-default">  
