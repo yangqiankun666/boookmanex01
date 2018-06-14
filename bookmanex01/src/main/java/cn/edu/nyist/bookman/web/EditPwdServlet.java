@@ -26,9 +26,10 @@ public class EditPwdServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		       //解决参数中⽂乱码问题 
 				request.setCharacterEncoding("utf-8"); 
+				String pwdcheck=request.getParameter("pwd1");
 				String pwd=request.getParameter("pwd");
 				AdminBiz adminBiz=new AdminBizimpl();
-				Boolean ret=adminBiz.editpwd(pwd);
+				Boolean ret=adminBiz.editpwd(pwd,pwdcheck);
 				if (ret) {
 					request.setAttribute("msg", "修改成功");
 					response.sendRedirect("main.jsp");

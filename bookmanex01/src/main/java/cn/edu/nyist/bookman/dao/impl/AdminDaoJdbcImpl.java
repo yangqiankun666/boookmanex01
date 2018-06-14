@@ -69,14 +69,14 @@ public class AdminDaoJdbcImpl implements AdminDao {
 	}
 
 	@Override
-	public Boolean editadmin(String pwd) {
+	public Boolean editadmin(String pwd,String pwdcheck) {
 		Connection conn=null;
 		PreparedStatement stmt=null;
 		Boolean rt=false;
 		try {
 			conn=DsUtil.getconn();
 			
-				String sql=" update t_admin set pwd=?";
+				String sql=" update t_admin set pwd=? where pwd=pwdcheck";
 				stmt=conn.prepareStatement(sql);
 				stmt.setString(1, pwd);
 	           

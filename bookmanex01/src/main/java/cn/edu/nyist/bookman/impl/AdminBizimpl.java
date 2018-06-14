@@ -19,9 +19,9 @@ public class AdminBizimpl implements AdminBiz{
 	}
 
 	@Override
-	public Boolean editpwd(String pwd) {
+	public Boolean editpwd(String pwd,String pwdcheck ) {
 		AdminDao adminDao=new AdminDaoJdbcImpl();
-		return adminDao.editadmin(pwd);
+		return adminDao.editadmin(pwd,pwdcheck);
 	}
 
 }

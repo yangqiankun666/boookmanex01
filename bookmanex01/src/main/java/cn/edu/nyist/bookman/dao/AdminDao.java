@@ -6,6 +6,6 @@ public interface AdminDao {
 
 	Boolean ins(String name, String pwd);
 
-	Boolean editadmin(String pwd);
+	Boolean editadmin(String pwd, String pwdcheck);
 
 }

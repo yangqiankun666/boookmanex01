@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+	<constant name="struts.devMode" value="true" />
+	<!-- 把Action创建权交给spring,struts2没用注入Action能 力需要biz -->
+	<constant name="struts.objectFactory" value="spring" />
+	<package name="basicstruts2" extends="struts-default">
+		<action name="login" class="adminAction">
+		<result name="success">/success.jsp</result>
+		<result name="input">/login.jsp</result>
+		</action>
+	</package>
+
+</struts>

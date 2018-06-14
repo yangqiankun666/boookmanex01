@@ -6,6 +6,6 @@ public interface AdminBiz {
 
 	Boolean insertnameandpwd(String name, String pwd);
 
-	Boolean editpwd(String pwd);
+	Boolean editpwd(String pwd, String pwdcheck);
 
 }
